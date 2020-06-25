@@ -162,32 +162,32 @@ if exist sources\miui rmdir /s /q sources\miui
 move firmware-update sources\miui
 move system.img sources\system.img
 move boot.img sources\boot.img
-move vendor.img sources\vendor.
+move vendor.img sources\vendor.img
 
 cls
 
 title flashing miui stuff
 echo flashing miui firmware images
 bin\fastboot.exe flash splash sources\miui\splash.img
-bin\fastboot.exe flash rpm sources\miui\rpm.img
-bin\fastboot.exe flash tz sources\miui\tz.img
+bin\fastboot.exe flash rpm sources\miui\rpm.mbn
+bin\fastboot.exe flash tz sources\miui\tz.mbn
 bin\fastboot.exe flash aboot sources\miui\emmc_appsboot.mbn
-bin\fastboot.exe flash lksecapp sources\miui\lksecapp.img
-bin\fastboot.exe flash keymaster sources\miui\keymaster.img
-bin\fastboot.exe flash sbl1 sources\miui\sbl1.img
-bin\fastboot.exe flash cmnlib64 sources\miui\cmnlib64.img
-bin\fastboot.exe flash cmnlib sources\miui\cmnlib.img
-bin\fastboot.exe flash devcfg sources\miui\devcfg.img
-bin\fastboot.exe flash rpmbak sources\miui\rpm.img
-bin\fastboot.exe flash tzbak sources\miui\tz.img
+bin\fastboot.exe flash lksecapp sources\miui\lksecapp.mbn
+bin\fastboot.exe flash keymaster sources\miui\keymaster64.mbn
+bin\fastboot.exe flash sbl1 sources\miui\sbl1.mbn
+bin\fastboot.exe flash cmnlib64 sources\miui\cmnlib64.mbn
+bin\fastboot.exe flash cmnlib sources\miui\cmnlib.mbn
+bin\fastboot.exe flash devcfg sources\miui\devcfg.mbn
+bin\fastboot.exe flash rpmbak sources\miui\rpm.mbn
+bin\fastboot.exe flash tzbak sources\miui\tz.mbn
 bin\fastboot.exe flash abootbak sources\miui\emmc_appsboot.mbn
-bin\fastboot.exe flash lksecappbak sources\miui\lksecapp.img
-bin\fastboot.exe flash keymasterbak sources\miui\keymaster.img
-bin\fastboot.exe flash sbl1bak sources\miui\sbl1.img
-bin\fastboot.exe flash cmnlibbak sources\miui\cmnlib.img
-bin\fastboot.exe flash devcfgbak sources\miui\devcfg.img
+bin\fastboot.exe flash lksecappbak sources\miui\lksecapp.mbn
+bin\fastboot.exe flash keymasterbak sources\miui\keymaster64.mbn
+bin\fastboot.exe flash sbl1bak sources\miui\sbl1.mbn
+bin\fastboot.exe flash cmnlibbak sources\miui\cmnlib.mbn
+bin\fastboot.exe flash devcfgbak sources\miui\devcfg.mbn
 bin\fastboot.exe flash modem sources\miui\NON-HLOS.bin
-bin\fastboot.exe flash dsp sources\miui\dsp.img
+bin\fastboot.exe flash dsp sources\miui\dsp.mbn
 bin\fastboot.exe flash persist sources\miui\persist.img
 bin\fastboot.exe flash persistbak sources\miui\persist.img
 
@@ -205,7 +205,7 @@ bin\fastboot.exe flash vendor_a .\sources\vendor.img
 echo flashing  Boot
 bin\fastboot.exe flash boot_a .\sources\boot.img
 
-fastboot sec active a
+fastboot set active a
 fastboot reboot
 bin\adb kill-server
 goto start
